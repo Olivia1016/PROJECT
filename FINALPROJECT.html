@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Quiz</title>
+    <style>
+        body {
+            background-color: lightsteelblue;
+        }
+
+        #main {
+            width: 80%;
+            max-width: 950px;
+            border: 1px gray solid;
+            margin: auto;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        #header {
+            margin-top: 0;
+            border: 2px solid black;
+            padding: 5px;
+            height: 250px;
+            background: lightgray;
+            color: white;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            width: 30px;
+            margin-left: 20px;
+        }
+
+        h2 {
+            clear: both;
+            padding-top: 20px;
+        }
+
+        button {
+            width: 100px;
+            margin-top: 20px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        <h1>Things I Think You Should Know</h1>
+    </div>
+    <form id="form1">
+        <fieldset>
+            <h2>How many stars are on the American flag?</h2>
+            <label for="var_string"><input type="radio" name="variable" value="0" />49</label>
+            <label for="var_join"><input type="radio" name="variable" value="0" />51</label>
+            <label for="var_info"><input type="radio" name="variable" value="25" />50</label>
+            <label for="var_condition"><input type="radio" name="variable" value="0" />13</label>
+
+            <h2>Who is OJ Simpson?</h2>
+            <label for="sub_string"><input type="radio" name="sub" value="0" />an athlete</label>
+            <label for="sub_join"><input type="radio" name="sub" value="0" />a singer</label>
+            <label for="sub_info"><input type="radio" name="sub" value="" />an actor</label>
+            <label for="sub_condition"><input type="radio" name="sub" value="25" />Both an actor and athlete</label>
+
+            <h2>What is my favorite drama series of 2017?</h2>
+            <label for="cat_string"><input type="radio" name="con" value="0" />House of Cards</label>
+            <label for="cat_join"><input type="radio" name="con" value="25" />The Handmaid's Tale</label>
+            <label for="cat_info"><input type="radio" name="con" value="0" />The Americans</label>
+            <label for="cat_condition"><input type="radio" name="con" value="0" />Game of Thrones</label>
+
+            <h2>What is the number one public university in the world (according to US News and World Report)?</h2>
+            <label for="if_string"><input type="radio" name="ifstate" value="0" />University of Michigan</label>
+            <label for="if_join"><input type="radio" name="ifstate" value="0" />Virginia Tech</label>
+            <label for="if_info"><input type="radio" name="ifstate" value="0" />UCLA</label>
+            <label for="if_condition"><input type="radio" name="ifstate" value="25" />UC Berkeley</label>
+
+            <h2>How many U.S Senators are there?</h2>
+            <label for="hello_string"><input type="radio" name="hello" value="0" />430</label>
+            <label for="hello_join"><input type="radio" name="hello" value="0" />50</label>
+            <label for="hello_info"><input type="radio" name="hello" value="0" />110</label>
+            <label for="hello_condition"><input type="radio" name="hello" value="25" />100</label>
+
+            <h2>What school has a stupid mascot?</h2>
+            <label for="bye_string"><input type="radio" name="bye" value="25" />Stanford</label>
+            <label for="bye_join"><input type="radio" name="bye" value="0" />Univeristy of North Carolina</label>
+            <label for="bye_info"><input type="radio" name="bye" value="0" />UCLA</label>
+            <label for="bye_condition"><input type="radio" name="bye" value="0" />University of Texas, Austin</label>
+
+            <h2>Frankenstein is the name of ____? </h2>
+            <label for="Cal_string"><input type="radio" name="Cal" value="0" />The monster</label>
+            <label for="Cal_join"><input type="radio" name="Cal" value="25" />The Doctor</label>
+            <label for="Cal_info"><input type="radio" name="Cal" value="0" />Both</label>
+            <label for="Cal_condition"><input type="radio" name="Cal" value="0" />The Doctor's son</label>
+
+            <h2>Goldfish bowls are bad places to keep goldfish.</h2>
+            <label for="Olivia_string"><input type="radio" name="Olivia" value="25" />True</label>
+            <label for="Oliva_join"><input type="radio" name="Olivia" value="0" />False</label>
+
+            <h2>What college has an ugly clock tower?</h2>
+            <label for="Jorge_string"><input type="radio" name="Jorge" value="25" />Stanford</label>
+            <label for="Jorge_join"><input type="radio" name="Jorge" value="0" />Purdue</label>
+            <label for="Jorge_info"><input type="radio" name="Jorge" value="0" />Cornell University</label>
+            <label for="Jorge_condition"><input type="radio" name="Jorge" value="0" />University of Texas, Austin</label>
+
+
+            <button type="submit" value="Submit">Submit</button>
+        </fieldset>
+    </form>
+
+    <p>Your grade is: <span id="grade">__</span></p>
+    <p id="grade2"></p>
+
+
+
+    <script>
+        document.getElementById("form1").onsubmit=function() {
+            variable = parseInt(document.querySelector('input[name = "variable"]:checked').value);
+            sub = parseInt(document.querySelector('input[name = "sub"]:checked').value);
+            con = parseInt(document.querySelector('input[name = "con"]:checked').value);
+            ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
+            hello = parseInt(document.querySelector('input[name = "hello"]:checked').value);
+            bye = parseInt(document.querySelector('input[name = "bye"]:checked').value);
+            Cal = parseInt(document.querySelector('input[name = "Cal"]:checked').value);
+            Olivia = parseInt(document.querySelector('input[name = "Olivia"]:checked').value);
+            Jorge = parseInt(document.querySelector('input[name = "Jorge"]:checked').value);
+
+
+            result = variable + sub + con + ifstate + hello + bye + Cal + Olivia + Jorge;
+
+            document.getElementById("grade").innerHTML = result;
+
+            grading = [
+                {score:0,feedback:"big fat F, try again", image: src="https://media.giphy.com/media/a9xhxAxaqOfQs/giphy.gif"},
+                {score:25,feedback:"25/225, you need to study more, try again", image: src="https://media.giphy.com/media/a9xhxAxaqOfQs/giphy.gif"},
+                {score:50,feedback:"50/225, you need to study more, try again", image: src="https://media.tenor.com/images/150d058af7457f2068706c08cf89a8e5/tenor.gif"},
+                {score:75,feedback:"75/225, you need to study more, try again", image: src="https://media.tenor.com/images/150d058af7457f2068706c08cf89a8e5/tenor.gif"},
+                {score: 100, feedback:"100/225, you need to study more, try again", image: src="https://media.tenor.com/images/718b6cee3869524e275d6a6a3f1483e3/tenor.gif"},
+                {score: 125, feedback:"125/225, you need to study more, try again", image: src="https://media.tenor.com/images/718b6cee3869524e275d6a6a3f1483e3/tenor.gif"},
+                {score: 150, feedback:"150/225, you need to study more, try again", image: src="https://media.tenor.com/images/718b6cee3869524e275d6a6a3f1483e3/tenor.gif"},
+                {score: 175, feedback:"175/225, getting there but seriously try harder", image: src="https://media.giphy.com/media/ZjWK0ouqpD9u0/giphy.gif"},
+                {score: 200, feedback:"200/225, pretty good", image: "https://68.media.tumblr.com/273626ea2ebf278d71df7c8a3382d79b/tumblr_n0pj97VoB41s4m325o1_500.gif"},
+                {score:225,feedback:"225/225, You're a master at essential facts I think you should know, good job", image: src="https://media.giphy.com/media/12QydgvtGF74gU/giphy.gif"}
+            ];
+
+            for(i=0; i<grading.length; i++) {
+                if(result === grading[i].score) {
+                    result2 = grading[i].feedback + "<br /><img src='" + grading[i].image + "' width='300'  />";
+                }
+            }
+
+
+            document.getElementById("grade2").innerHTML = result2;
+
+            return false;}
+
+    </script>
+
+
+</div>
+</body>
+</html>
